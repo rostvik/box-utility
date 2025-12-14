@@ -66,7 +66,7 @@ pathspec==0.12.1
     #   ansible-lint
     #   black
     #   yamllint
-platformdirs==4.5.0
+platformdirs==4.5.1
     # via black
 pycparser==2.23
     # via cffi
