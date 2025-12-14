@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://json.schemastore.org/pre-commit-config.json
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-executables-have-shebangs
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-shebang-scripts-are-executable
+
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.1.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+        args: []
+
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+        types: [file, yaml]
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.9.8
+    hooks:
+      - id: uv-lock
+      - id: uv-export
+      - id: pip-compile
+        args: [requirements.in, -o, requirements.txt]

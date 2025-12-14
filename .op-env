@@ -1,0 +1,2 @@
+RENOVATE_GITHUB_COM_TOKEN="op://Home-infra/Rostvik Renovate/password"
+RENOVATE_CONFIG_FILE=.github/local.renovate.json5

@@ -1,0 +1,59 @@
+{
+  "name": "util-box",
+  // renovate: datasource=docker
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu24.04@sha256:8d68bbf458958747a7f41756f60de95d5b404f374f05cd42969957653fad0cfe",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/mise:1": {
+      // renovate: datasource=github-releases depName=jdx/mise
+      "version": "v2025.12.0"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "1Password.op-vscode",
+        "aaron-bond.better-comments",
+        "EditorConfig.EditorConfig",
+        "hverlin.mise-vscode",
+        "oderwat.indent-rainbow",
+        "redhat.ansible",
+        "samuelcolvin.jinjahtml",
+        "tamasfe.even-better-toml",
+        "vivaxy.vscode-conventional-commits",
+        "mrmlnc.vscode-json5"
+      ]
+    }
+  },
+  "mounts": [
+    {
+      "source": "mise-data-volume",
+      "target": "/mnt/mise-data",
+      "type": "volume"
+    },
+    {
+      "source": "util-box-bashhistory",
+      "target": "/commandhistory",
+      "type": "volume"
+    },
+    {
+      "source": "${localEnv:HOME}/.ssh/config",
+      "target": "/home/vscode/.ssh/config",
+      "type": "bind"
+    }
+  ],
+  "containerEnv": {
+    "MISE_DATA_DIR": "/mnt/mise-data"
+  },
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/mnt/mise-data/shims"
+  },
+  "postCreateCommand": [
+    "bash",
+    ".devcontainer/postCreate.sh"
+  ],
+  "initializeCommand": "/home/roxedus/.local/bin/op inject -fi .devcontainer/devcontainer.env.tmpl -o .devcontainer/devcontainer.env",
+  "runArgs": [
+    "--env-file",
+    ".devcontainer/devcontainer.env"
+  ]
+}
