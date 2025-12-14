@@ -9,6 +9,7 @@ wheels/
 # Virtual environments
 .venv
 
+# IDEs and editors
 .vscode/
 
 # Ansible
@@ -16,6 +17,10 @@ wheels/
 .galaxy_roles
 .galaxy_collections
 
+# Environment files
 .devcontainer/devcontainer.env
 .python-version
 .env
+
+# Generated files
+requirements.txt
