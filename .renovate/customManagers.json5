@@ -12,7 +12,7 @@
         // foobar_version: v1.0.0
         // # renovate: datasource=docker depName=ghcr.io/foo/bar
         // FOOBAR_VERSION=v1.0.0
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+(:\\s|=)(&\\S+\\s)?(?<currentValue>\\S+)",
+        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+(:\\s|=)(&\\S+\\s)?\"(?<currentValue>\\S+)\"",
         "datasource=(?<datasource>\\S+)\\n.+(:\\s+|=)\\S(?<depName>[\\w./]+):(?<currentValue>[\\w.:]+)(@(?<currentDigest>[\\w.@:]+))?"
       ],
       datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
