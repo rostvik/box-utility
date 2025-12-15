@@ -11,7 +11,7 @@ usage = "2.18.2"
 CONTAINER_PYTHON_VENV = '{% if get_env(name="MISE_DATA_DIR", default="aaa") == "/mnt/mise-data" %}/workspaces/{% endif %}.venv'
 _.path = ["{{config_root}}/node_modules/.bin"]
 _.file = ["{{config_root}}/.env"]
-_.python.venv = { path = "{{env.CONTAINER_PYTHON_VENV}}", create = true }
+_.python.venv = { path = ".venv", create = false }                                                                              # relative to this file's directory
 
 [settings]
 python.uv_venv_auto = true
@@ -19,7 +19,7 @@ experimental = true
 
 [tasks.venv_create]
 description = "Create Python virtual environment"
-run = "uv venv {{env.CONTAINER_PYTHON_VENV}}"
+run = "python -m venv .venv"
 hide = true
 
 [tasks.build_deps]

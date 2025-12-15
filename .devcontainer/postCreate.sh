@@ -5,11 +5,8 @@ mkdir -p /commandhistory
 sudo touch /commandhistory/.bash_history
 sudo chown -R vscode:vscode /commandhistory
 
-sudo touch /home/vscode/.ssh/authorized_keys
-sudo chown -R vscode:vscode /home/vscode/.ssh
-
-sudo mkdir -p /workspaces/.venv
-sudo chown -R vscode:vscode /workspaces/.venv
+touch /home/vscode/.ssh/authorized_keys
+sudo chown -R vscode:vscode /home/vscode/.ssh/authorized_keys
 
 mise trust -a
 #mise use -g node@lts
@@ -18,4 +15,3 @@ echo 'eval "$(mise activate bash)"' >> /home/vscode/.bashrc
 echo 'source <(mise completion bash --include-bash-completion-lib)' >> /home/vscode/.bashrc
 
 mise i
-mise repo
