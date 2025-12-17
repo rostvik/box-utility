@@ -4,7 +4,7 @@ uv = "0.9.18"
 python = "3.14.2"
 op = "2.31.0"
 node = "24"
-"npm:renovate" = "42.52.6"
+"npm:renovate" = "42.52.8"
 usage = "2.9.0"
 
 [env]
