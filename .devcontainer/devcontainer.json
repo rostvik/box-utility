@@ -5,7 +5,7 @@
   "features": {
     "ghcr.io/devcontainers-extra/features/mise:1": {
       // renovate: datasource=github-releases depName=jdx/mise
-      "version": "v2025.12.5"
+      "version": "v2025.12.12"
     }
   },
   "customizations": {
