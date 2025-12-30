@@ -8,9 +8,10 @@ node = "24"
 usage = "2.11.0"
 
 [env]
+CONTAINER_PYTHON_VENV = '{% if get_env(name="MISE_DATA_DIR", default="aaa") == "/mnt/mise-data" %}/workspaces/{% endif %}.venv'
 _.path = ["{{config_root}}/node_modules/.bin"]
 _.file = ["{{config_root}}/.env"]
-_.python.venv = { path = ".venv", create = false } # relative to this file's directory
+_.python.venv = { path = "{{env.CONTAINER_PYTHON_VENV}}", create = true }
 
 [settings]
 python.uv_venv_auto = true
@@ -18,7 +19,7 @@ experimental = true
 
 [tasks.venv_create]
 description = "Create Python virtual environment"
-run = "python -m venv .venv"
+run = "uv venv {{env.CONTAINER_PYTHON_VENV}}"
 hide = true
 
 [tasks.build_deps]
@@ -33,7 +34,7 @@ run = "pre-commit install --install-hooks"
 hide = true
 
 [tasks.install]
-alias = "i"
+alias = "repo"
 depends = ["install_python", "install_node"]
 
 [tasks.install_python]
