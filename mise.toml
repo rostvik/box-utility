@@ -5,7 +5,7 @@ python = "3.14.2"
 op = "2.31.0"
 node = "24"
 "npm:renovate" = "42.66.9"
-usage = "2.10.0"
+usage = "2.11.0"
 
 [env]
 _.path = ["{{config_root}}/node_modules/.bin"]
