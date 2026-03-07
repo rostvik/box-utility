@@ -3,7 +3,7 @@ uv = "0.10.9"
 "aqua:pre-commit/pre-commit" = "4.5.1"
 python = "3.14.3"
 op = "2.31.0"
-node = "24"
+node = "latest"
 "npm:renovate" = "latest"
 usage = "2.18.2"
 
