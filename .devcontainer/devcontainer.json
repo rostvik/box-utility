@@ -39,7 +39,7 @@
     },
     {
       "source": "${localEnv:HOME}/.ssh/config",
-      "target": "/home/vscode/.ssh/config",
+      "target": "/ssh_config",
       "type": "bind"
     }
   ],
