@@ -1,7 +1,7 @@
 [tools]
 uv = "0.10.9"
 "aqua:pre-commit/pre-commit" = "4.5.1"
-python = "3.14.3"
+python = "3.14.4"
 op = "2.31.0"
 node = "latest"
 "npm:renovate" = "latest"
