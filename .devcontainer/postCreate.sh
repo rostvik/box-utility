@@ -15,4 +15,12 @@ echo "export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bas
 echo 'eval "$(mise activate bash)"' >> /home/vscode/.bashrc
 echo 'source <(mise completion bash --include-bash-completion-lib)' >> /home/vscode/.bashrc
 
+eval "$(mise activate bash)"
+
+echo "aaa - ${CONTAINER_PYTHON_VENV}"
+
+sudo mkdir -p "${CONTAINER_PYTHON_VENV}"
+sudo chown -R vscode:vscode "${CONTAINER_PYTHON_VENV}"
+
 mise i
+mise repo
