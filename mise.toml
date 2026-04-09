@@ -5,7 +5,7 @@ python = "3.14.4"
 op = "2.31.0"
 node = "latest"
 "npm:renovate" = "latest"
-usage = "2.18.2"
+usage = "3.2.0"
 
 [env]
 CONTAINER_PYTHON_VENV = '{% if get_env(name="MISE_DATA_DIR", default="aaa") == "/mnt/mise-data" %}/workspaces/{% endif %}.venv'
