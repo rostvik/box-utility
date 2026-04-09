@@ -27,21 +27,9 @@
     }
   },
   "mounts": [
-    {
-      "source": "mise-data-volume",
-      "target": "/mnt/mise-data",
-      "type": "volume"
-    },
-    {
-      "source": "util-box-bashhistory",
-      "target": "/commandhistory",
-      "type": "volume"
-    },
-    {
-      "source": "${localEnv:HOME}/.ssh/config",
-      "target": "/ssh_config",
-      "type": "bind"
-    }
+    "source=mise-data-volume,target=/mnt/mise-data,type=volume",
+    "source=util-box-bashhistory,target=/commandhistory,type=volume",
+    "source=${localEnv:HOME}/.ssh/config,target=/ssh_config,type=bind"
   ],
   "containerEnv": {
     "MISE_DATA_DIR": "/mnt/mise-data"
