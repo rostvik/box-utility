@@ -10,6 +10,10 @@
   },
   "customizations": {
     "vscode": {
+      "settings": {
+        "yaml.format.bracketSpacing": false,
+        "yaml.format.printWidth": 160
+      },
       "extensions": [
         "1Password.op-vscode",
         "aaron-bond.better-comments",
