@@ -25,7 +25,7 @@ hide = true
 [tasks.build_deps]
 description = "Build dependencies"
 depends = ["venv_create"]
-run = "uv pip compile requirements.in --universal --output-file requirements.txt"
+run = "uv pip compile requirements.pip --universal --output-file requirements.txt"
 hide = true
 
 [tasks.install_pre-commit]
