@@ -35,6 +35,8 @@ cryptography==46.0.3
     # via
     #   ansible-core
     #   pyjwt
+dnspython==2.8.0
+    # via -r requirements.in
 docsible==0.8.0
     # via -r requirements.in
 filelock==3.20.0

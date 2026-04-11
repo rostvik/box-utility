@@ -6,6 +6,10 @@
     - name: Set become password from 1Password
       ansible.builtin.set_fact:
         ansible_become_password: "{{ lookup('community.general.onepassword', 'UtilityBox - Box', field='password', vault='Home-infra') }}"
+    - name: Set domain fact for homepage
+      ansible.builtin.set_fact:
+        box_domain: |
+          {{ (query('community.dns.reverse_lookup', ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]), server='10.0.0.31') | first)[:-1] }}
 
 - name: Set up user
   hosts: all

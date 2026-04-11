@@ -6,3 +6,4 @@ jmespath==1.0.1
 passlib==1.7.4 #; sys_platform == 'darwin'
 wheel==0.45.1
 yamllint==1.37.1
+dnspython==2.8.0
