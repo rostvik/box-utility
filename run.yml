@@ -8,8 +8,9 @@
         ansible_become_password: "{{ lookup('community.general.onepassword', 'UtilityBox - Box', field='password', vault='Home-infra') }}"
     - name: Set domain fact for homepage
       ansible.builtin.set_fact:
-        box_domain: |
-          {{ (query('community.dns.reverse_lookup', ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]), server='10.0.0.31') | first)[:-1] }}
+        box_domain: >-
+          {{ (query('community.dns.reverse_lookup', ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]), server='10.0.0.31') | first)[:-1] |
+          trim() }}
 
 - name: Set up user
   hosts: all
@@ -241,11 +242,11 @@
           NGINX_PORT: "8080"
         log_driver: journald
         label:
-          - homepage.group=Network
-          - homepage.name=Netboot.xyz
-          - homepage.icon=netbootxyz.png
-          - homepage.href=http://{{ box_domain }}:8080
-          - homepage.description=iPXE server
+          homepage.group: Network
+          homepage.name: Netboot.xyz
+          homepage.icon: netbootxyz.png
+          homepage.href: http://{{ box_domain }}:8080
+          homepage.description: iPXE server
         state: quadlet
         ports:
           - 3000:3000
@@ -403,11 +404,11 @@
           BACKUPS_PW: "{{ lookup('community.general.onepassword', 'Meshcentral - Container', field='password', vault='Home-infra') }}"
         log_driver: journald
         label:
-          - homepage.group=Network
-          - homepage.name=MeshCentral
-          - homepage.icon=meshcentral.png
-          - homepage.href=https://{{ box_domain }}:8086
-          - homepage.description=IME server and remote access tool
+          homepage.group: Network
+          homepage.name: MeshCentral
+          homepage.icon: meshcentral.png
+          homepage.href: https://{{ box_domain }}:8086
+          homepage.description: IME server and remote access tool
         state: quadlet
         ports:
           - 8086:443
