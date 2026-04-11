@@ -227,6 +227,12 @@
         env:
           NGINX_PORT: "8080"
         log_driver: journald
+        label:
+          - homepage.group=Network
+          - homepage.name=Netboot.xyz
+          - homepage.icon=netbootxyz.png
+          - homepage.href=http://{{ box_domain }}:8080
+          - homepage.description=iPXE server
         state: quadlet
         ports:
           - 3000:3000
@@ -369,6 +375,7 @@
         - Restart meshcentral container
       containers.podman.podman_container:
         name: meshcentral
+        # TODO: Consider https://github.com/Ylianst/MeshCentral
         image: docker.io/typhonragewind/meshcentral:latest
         network: util-rootless.network
         volumes:
@@ -376,12 +383,18 @@
           - /opt/appdata/rootless/meshcentral/files:/opt/meshcentral/meshcentral-files:Z
           - /opt/appdata/rootless/meshcentral/backups:/opt/meshcentral/meshcentral-backups:Z
         env:
-          HOSTNAME: utility.rostvik.site
+          HOSTNAME: "{{ box_domain }}"
           REVERSE_PROXY: "false"
           ALLOW_NEW_ACCOUNTS: "true"
           WEBRTC: "true"
           BACKUPS_PW: "{{ lookup('community.general.onepassword', 'Meshcentral - Container', field='password', vault='Home-infra') }}"
         log_driver: journald
+        label:
+          - homepage.group=Network
+          - homepage.name=MeshCentral
+          - homepage.icon=meshcentral.png
+          - homepage.href=https://{{ box_domain }}:8086
+          - homepage.description=IME server and remote access tool
         state: quadlet
         ports:
           - 8086:443
