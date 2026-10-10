@@ -1,7 +1,7 @@
 {
   "name": "util-box",
   // renovate: datasource=docker
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu24.04@sha256:4bcb1b466771b1ba1ea110e2a27daea2f6093f9527fb75ee59703ec89b5561cb",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu24.04@sha256:21e9e3275736cb3bc33a2904b279a2ab292c51fedd53c2963463627d4586c3e6",
   "features": {
     "ghcr.io/devcontainers-extra/features/mise:1": {
       // renovate: datasource=github-releases depName=jdx/mise
